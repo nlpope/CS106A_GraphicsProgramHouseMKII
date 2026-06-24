@@ -32,8 +32,6 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 		baseRect.setFilled(false);
 		baseRect.setColor(Color.PINK);
 		add(baseRect);
-		println("start x = " + baseRectXOrigin);
-		println("start y = " + baseRectYOrigin);
 	}
 	
 	
@@ -91,6 +89,23 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 	
 	private void createWindows()
 	{
+		//left window logic
+		double padding = 15;
+		double size = 30;
+		GRect leftWindowRect = new GRect(
+				baseRectXOrigin + padding,
+				baseRectYOrigin + padding,
+				size,
+				size
+		);
+		leftWindowRect.setColor(Color.PINK);
+		add(leftWindowRect);
 		
+		//right window logic 
+		GRect rightWindowRect = new GRect(
+				
+		);
+		
+		println("donezo");
 	}
 }
