@@ -12,7 +12,8 @@ import java.awt.*;
 
 public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 {
-	GRect baseRect = null;
+	//below two global vars are the same idea written differently
+	GRect baseRect;
 	GRect doorRect = null;
 	
 	public void run()
