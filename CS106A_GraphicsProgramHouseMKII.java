@@ -12,11 +12,8 @@ import java.awt.*;
 
 public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 {
-	GRect baseRect = new GRect(250, 250, 150, 75);
-	double baseRectXOrigin = baseRect.getX();
-	double baseRectYOrigin = baseRect.getY();
-	double baseRectWidth = baseRect.getWidth();
-	double baseRectHeight = baseRect.getHeight();
+	GRect baseRect = null;
+	GRect doorRect = null;
 	
 	public void run()
 	{
@@ -29,6 +26,7 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 	
 	private void createBase()
 	{
+		baseRect = new GRect(250, 250, 150, 75);
 		baseRect.setFilled(false);
 		baseRect.setColor(Color.PINK);
 		add(baseRect);
@@ -38,19 +36,19 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 	private void createRoof()
 	{
 		GLine roofLine1 = new GLine(
-				baseRectXOrigin, 
-				baseRectYOrigin, 
-				baseRectXOrigin + (baseRectWidth / 2), 
-				baseRectYOrigin - 50
+				baseRect.getX(), 
+				baseRect.getY(), 
+				baseRect.getX() + (baseRect.getWidth() / 2), 
+				baseRect.getY() - 50
 		);
 		roofLine1.setColor(Color.PINK);
 		add(roofLine1);
 		
 		GLine roofLine2 = new GLine(
-				baseRectXOrigin + (baseRectWidth / 2), 
-				baseRectYOrigin - 50, 
-				baseRectXOrigin + baseRectWidth, 
-				baseRectYOrigin
+				baseRect.getX() + (baseRect.getWidth() / 2), 
+				baseRect.getY() - 50, 
+				baseRect.getX() + baseRect.getWidth(), 
+				baseRect.getY()
 		);
 		roofLine2.setColor(Color.PINK);
 		add(roofLine2);
@@ -60,11 +58,11 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 	private void createDoor()
 	{
 		//door logic
-		GRect doorRect = new GRect(
-				baseRectXOrigin + (baseRectWidth / 2.5),
-				baseRectYOrigin + (baseRectHeight / 3.5),
-				baseRectWidth / 5,
-				baseRectHeight - (baseRectHeight / 3.5)
+		doorRect = new GRect(
+				baseRect.getX() + (baseRect.getWidth() / 2.5),
+				baseRect.getY() + (baseRect.getHeight() / 3.5),
+				baseRect.getWidth() / 5,
+				baseRect.getHeight() - (baseRect.getHeight() / 3.5)
 		);
 		doorRect.setColor(Color.PINK);
 		add(doorRect);
@@ -90,11 +88,11 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 	private void createWindows()
 	{
 		//left window logic
-		double padding = 15;
-		double size = 30;
+		double padding = 13;
+		double size = 35;
 		GRect leftWindowRect = new GRect(
-				baseRectXOrigin + padding,
-				baseRectYOrigin + padding,
+				doorRect.getX() - size - padding,
+				doorRect.getY() - (padding / 2),
 				size,
 				size
 		);
@@ -103,9 +101,15 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 		
 		//right window logic 
 		GRect rightWindowRect = new GRect(
-				
+				doorRect.getX() + doorRect.getWidth() + padding,
+				doorRect.getY() - (padding / 2),
+				size,
+				size
 		);
+		rightWindowRect.setColor(Color.PINK);
+		add(rightWindowRect);
 		
 		println("donezo");
 	}
+	//change save
 }
