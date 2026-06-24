@@ -64,13 +64,15 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 		// windows & doorknob will depend on door's 
 		// position so making that first
 		GRect doorRect = new GRect(
-				baseRectXOrigin + (baseRectWidth / 3),
-				baseRectYOrigin + (baseRectHeight / 3),
-				baseRectWidth / 3,
-				baseRectHeight - (baseRectHeight / 3)
+				baseRectXOrigin + (baseRectWidth / 2.5),
+				baseRectYOrigin + (baseRectHeight / 3.5),
+				baseRectWidth / 5,
+				baseRectHeight - (baseRectHeight / 3.5)
 		);
 		doorRect.setColor(Color.PINK);
 		add(doorRect);
+		
+		
 	}
 	
 	
