@@ -61,8 +61,7 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 	
 	private void createDoor()
 	{
-		// windows & doorknob will depend on door's 
-		// position so making that first
+		//door logic
 		GRect doorRect = new GRect(
 				baseRectXOrigin + (baseRectWidth / 2.5),
 				baseRectYOrigin + (baseRectHeight / 3.5),
@@ -72,7 +71,21 @@ public class CS106A_GraphicsProgramHouseMKII extends GraphicsProgram
 		doorRect.setColor(Color.PINK);
 		add(doorRect);
 		
-		
+		//doorknob logic
+		GPoint doorLocation = doorRect.getLocation();
+		double size = 5;
+		double x = doorLocation.getX()+ doorRect.getWidth() - (size + 5);
+		double y = doorLocation.getY()+ (doorRect.getHeight() / 2.3);
+		GArc doorknobArc = new GArc(
+				x,
+				y,
+				size,
+				size,
+				0,
+				360
+		);
+		doorknobArc.setColor(Color.PINK);
+		add(doorknobArc);
 	}
 	
 	
